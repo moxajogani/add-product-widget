@@ -8,22 +8,22 @@
  * @version 1.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if ( ! defined('ABSPATH')) {
 	exit;
 }
 
 global $product;
 ?>
 <li>
-	<?php do_action( 'ap_widget_product_item_start', $args ); ?>
+	<?php do_action('ap_widget_product_item_start', $args); ?>
 
-	<a href="<?php echo esc_url( $product->get_permalink() ); ?>">
+	<a href="<?php echo esc_url($product->get_permalink()); ?>">
 		<?php echo $product->get_image(); ?>
 		<span class="product-title"><?php echo $product->get_name(); ?></span>
 	</a>
 
-	<?php if ( ! empty( $show_rating ) ) :
-		echo wc_get_rating_html( $product->get_average_rating() );
+	<?php if ( ! empty($show_rating)) :
+		echo wc_get_rating_html($product->get_average_rating());
 	endif;
 
 	echo $product->get_price_html();
@@ -35,5 +35,5 @@ global $product;
 		?>
 	</div>
 	<?php
-	do_action( 'ap_widget_product_item_end', $args ); ?>
+	do_action('ap_widget_product_item_end', $args); ?>
 </li>
