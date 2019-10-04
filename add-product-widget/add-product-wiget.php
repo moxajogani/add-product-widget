@@ -10,7 +10,7 @@
  * @package Add-Products-Widget
  */
 
-include_once( 'ap-widget.php' );
+include_once('ap-widget.php');
 
 /**
  * Add product widget class
@@ -33,7 +33,7 @@ class add_product_widget {
 	}
 
 	function ap_load_widget() {
-    	register_widget( 'ap_widget' );
+		register_widget( 'ap_widget' );
 	}
 }
 $add_product_widget = new add_product_widget();
