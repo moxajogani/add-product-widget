@@ -81,11 +81,11 @@ class ap_widget extends WP_Widget {
  	 * @param  array $instance
  	 * @return WP_Query
  	 */
-	public function get_products( $args, $instance ) {
-		$number                      = ! empty( $instance['number'] ) ? absint( $instance['number'] )           : $this->settings['number']['std'];
-		$show                        = ! empty( $instance['show'] ) ? sanitize_title( $instance['show'] )       : $this->settings['show']['std'];
-		$orderby                     = ! empty( $instance['orderby'] ) ? sanitize_title( $instance['orderby'] ) : $this->settings['orderby']['std'];
-		$order                       = ! empty( $instance['order'] ) ? sanitize_title( $instance['order'] )     : $this->settings['order']['std'];
+	public function get_products($args, $instance) {
+		$number                      = ! empty($instance['number']) ? absint($instance['number']) : $this->settings['number']['std'];
+		$show                        = ! empty($instance['show']) ? sanitize_title($instance['show']) : $this->settings['show']['std'];
+		$orderby                     = ! empty($instance['orderby']) ? sanitize_title($instance['orderby']) : $this->settings['orderby']['std'];
+		$order                       = ! empty($instance['order']) ? sanitize_title($instance['order']) : $this->settings['order']['std'];
 		$product_visibility_term_ids = wc_get_product_visibility_term_ids();
 
 		$query_args = array(
@@ -157,8 +157,9 @@ class ap_widget extends WP_Widget {
 			// before and after widget arguments are defined by themes
 			echo $args['before_widget'];
 
-			if ( ! empty($title))
-				echo $args['before_title'] . $title . $args['after_title'];
+			if ( ! empty($title)) {
+							echo $args['before_title'] . $title . $args['after_title'];
+			}
 
 			echo wp_kses_post(apply_filters('ap_before_widget_product_list', '<ul class="product_list_widget">'));
 
@@ -175,11 +176,11 @@ class ap_widget extends WP_Widget {
 					'ap-widget-content.php', 
 					$template_args, 
 					'add-product-widget', 
-					plugin_dir_path( __FILE__ ) . '/templates/' );
+					plugin_dir_path(__FILE__) . '/templates/' );
 			}
 
-			echo wp_kses_post( apply_filters( 'ap_after_widget_product_list', '</ul>' ) );
-			echo $args[ 'after_widget' ];	
+			echo wp_kses_post(apply_filters('ap_after_widget_product_list', '</ul>'));
+			echo $args['after_widget'];	
 		}
 
 		wp_reset_postdata();

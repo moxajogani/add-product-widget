@@ -26,14 +26,14 @@ class add_product_widget {
 	 */
 
 	public function __construct() {
-		if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+		if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')))) {
 			// Register and load the widget
-			add_action( 'widgets_init', array( &$this, 'ap_load_widget' ) );
+			add_action('widgets_init', array(&$this, 'ap_load_widget'));
 		}
 	}
 
 	function ap_load_widget() {
-		register_widget( 'ap_widget' );
+		register_widget('ap_widget');
 	}
 }
 $add_product_widget = new add_product_widget();
